@@ -31,9 +31,12 @@ $(error Go source files are not generated from this repository. See: https://git
 endif
 
 FLAGS+= --proto_path=.:$(PROTOINCLUDE)
-# FLAGS+= --include_source_info --include_imports --descriptor_set_out=$(OUTPUT)
-FLAGS+= --$(LANGUAGE)_out=$(OUTPUT) --grpc_out=$(OUTPUT) --grpc-gateway_out=$(OUTPUT)
 FLAGS+=	--plugin=protoc-gen-grpc=$(GRPCPLUGIN)
+
+FLAGS_OUT+= --$(LANGUAGE)_out=$(OUTPUT)
+FLAGS_OUT+= --grpc_out=$(OUTPUT)
+FLAGS_OUT+= --grpc-gateway_out=$(OUTPUT)
+FLAGS_OUT+= --swagger_out=logtostderr=true:$(OUTPUT)
 
 SUFFIX:= pb.${LANGUAGE}
 GW_SUFFIX:= pb.gw.${LANGUAGE}
@@ -44,9 +47,11 @@ all: $(DEPS)
 
 %.$(SUFFIX):  %.proto
 	mkdir -p $(OUTPUT)
-	$(PROTOC) $(FLAGS) $*.proto
+	$(PROTOC) $(FLAGS) $(FLAGS_OUT) $*.proto
+	$(PROTOC) $(FLAGS) $*.proto --doc_out=$(shell dirname $(OUTPUT)/$*.proto)
+	$(PROTOC) $(FLAGS) $*.proto --include_source_info --include_imports --descriptor_set_out=$(shell dirname $(OUTPUT)/$*.proto)/descriptors.protoset
 
 clean:
 	rm $(patsubst %,$(OUTPUT)/%,$(DEPS)) 2> /dev/null
-	rm -rd $(OUTPUT)
+	rm -rfd $(OUTPUT)
 
