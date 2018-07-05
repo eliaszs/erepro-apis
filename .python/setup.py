@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='erego',
+    name='erepro',
     version='',
     packages=find_packages(),
     url='',
