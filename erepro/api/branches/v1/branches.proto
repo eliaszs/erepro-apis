@@ -8,7 +8,7 @@ import "google/protobuf/timestamp.proto";
 import "google/protobuf/field_mask.proto";
 
 
-option go_package = "github.com/eliaszs/werepro-apis/erepro/api/branches/v1;branches";
+option go_package = "github.com/eliaszs/erepro-apis/erepro/api/branches/v1;branches";
 
 
 // Manages cloud branch resources.
