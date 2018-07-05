@@ -8,6 +8,8 @@ import "google/longrunning/operations.proto";
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/field_mask.proto";
 
+option go_package = "github.com/erepro-apis/erepro/api/listings/v1;listings";
+
 
 // Manages cloud listing resources.
 service Listings {

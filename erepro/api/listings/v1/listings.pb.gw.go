@@ -2,11 +2,11 @@
 // source: erepro/api/listings/v1/listings.proto
 
 /*
-Package erepro_api_listings_v1 is a reverse proxy.
+Package listings is a reverse proxy.
 
 It translates gRPC into RESTful JSON APIs.
 */
-package erepro_api_listings_v1
+package listings
 
 import (
 	"io"

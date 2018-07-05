@@ -2,7 +2,12 @@ syntax = "proto3";
 
 package erego.api.auth.v1;
 
+
 import "google/api/annotations.proto";
+
+
+option go_package = "github.com/erepro-apis/erepro/api/auth/v1;auth";
+
 
 // Auth is responsible for the user authentication
 service Auth {

@@ -2,11 +2,11 @@
 // source: erepro/api/branches/v1/branches.proto
 
 /*
-Package erepro_api_branches_v1 is a reverse proxy.
+Package branches is a reverse proxy.
 
 It translates gRPC into RESTful JSON APIs.
 */
-package erepro_api_branches_v1
+package branches
 
 import (
 	"io"

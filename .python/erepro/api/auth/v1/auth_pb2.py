@@ -19,8 +19,8 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='erepro/api/auth/v1/auth.proto',
   package='erego.api.auth.v1',
   syntax='proto3',
-  serialized_options=None,
-  serialized_pb=_b('\n\x1d\x65repro/api/auth/v1/auth.proto\x12\x11\x65rego.api.auth.v1\x1a\x1cgoogle/api/annotations.proto\"1\n\x0b\x41uthRequest\x12\x10\n\x08username\x18\x01 \x01(\t\x12\x10\n\x08password\x18\x02 \x01(\t\"%\n\x0c\x41uthResponse\x12\x15\n\rauthenticated\x18\x01 \x01(\x08\x32l\n\x04\x41uth\x12\x64\n\x0c\x41uthenticate\x12\x1e.erego.api.auth.v1.AuthRequest\x1a\x1f.erego.api.auth.v1.AuthResponse\"\x13\x82\xd3\xe4\x93\x02\r\"\x08/v1/auth:\x01*b\x06proto3')
+  serialized_options=_b('Z.github.com/erepro-apis/erepro/api/auth/v1;auth'),
+  serialized_pb=_b('\n\x1d\x65repro/api/auth/v1/auth.proto\x12\x11\x65rego.api.auth.v1\x1a\x1cgoogle/api/annotations.proto\"1\n\x0b\x41uthRequest\x12\x10\n\x08username\x18\x01 \x01(\t\x12\x10\n\x08password\x18\x02 \x01(\t\"%\n\x0c\x41uthResponse\x12\x15\n\rauthenticated\x18\x01 \x01(\x08\x32l\n\x04\x41uth\x12\x64\n\x0c\x41uthenticate\x12\x1e.erego.api.auth.v1.AuthRequest\x1a\x1f.erego.api.auth.v1.AuthResponse\"\x13\x82\xd3\xe4\x93\x02\r\"\x08/v1/auth:\x01*B0Z.github.com/erepro-apis/erepro/api/auth/v1;authb\x06proto3')
   ,
   dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 
@@ -114,6 +114,7 @@ AuthResponse = _reflection.GeneratedProtocolMessageType('AuthResponse', (_messag
 _sym_db.RegisterMessage(AuthResponse)
 
 
+DESCRIPTOR._options = None
 
 _AUTH = _descriptor.ServiceDescriptor(
   name='Auth',

@@ -8,6 +8,9 @@ import "google/protobuf/timestamp.proto";
 import "google/protobuf/field_mask.proto";
 
 
+option go_package = "github.com/erepro-apis/erepro/api/branches/v1;branches";
+
+
 // Manages cloud branch resources.
 service Branches {
   // List the availalbe Branches
