@@ -26,15 +26,14 @@ PROTOC ?= protoc
 # NOTE: if "protoc" command is not in the PATH, you need to modify this file.
 #
 
-ifeq ($(LANGUAGE),go)
-$(error Go source files are not generated from this repository. See: https://github.com/google/go-genproto)
-endif
+# ifeq ($(LANGUAGE),go)
+# $(error Go source files are not generated from this repository. See: https://github.com/google/go-genproto)
+# endif
 
 FLAGS+= --proto_path=.:$(PROTOINCLUDE)
-FLAGS+=	--plugin=protoc-gen-grpc=$(GRPCPLUGIN)
+# FLAGS+=	--plugin=protoc-gen-grpc=$(GRPCPLUGIN)
 
-FLAGS_OUT+= --$(LANGUAGE)_out=$(OUTPUT)
-FLAGS_OUT+= --grpc_out=$(OUTPUT)
+FLAGS_OUT+= --$(LANGUAGE)_out=grpc:$(OUTPUT)
 FLAGS_OUT+= --grpc-gateway_out=$(OUTPUT)
 FLAGS_OUT+= --swagger_out=logtostderr=true:$(OUTPUT)
 
