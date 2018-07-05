@@ -20,9 +20,9 @@ service Branches {
     option (google.api.http) = { post: "/v1/branches:search", body: "*" };
   }
 
-  // Retrives a branch identified by the supplied branch id
+  // Retrives a branch identified by the supplied branch name
   rpc GetBranch(GetBranchRequest) returns (Branch) {
-    option (google.api.http) = { get: "/v1/{id=branches/*}" };
+    option (google.api.http) = { get: "/v1/{name=branches/*}" };
   }
 
   // Create a Branch in the database
@@ -32,18 +32,18 @@ service Branches {
 
   // Update a branch
   rpc UpdateBranch(UpdateBranchRequest) returns (Branch) {
-    option (google.api.http) = { patch: "/v1/{branch.id=branches/*}", body: "branch" };
+    option (google.api.http) = { patch: "/v1/{branch.name=branches/*}", body: "branch" };
   }
 
   // Delete a branch
   rpc DeleteBranch(DeleteBranchRequest) returns (Branch) {
-    option (google.api.http) = { delete: "/v1/{id=branches/*}" };
+    option (google.api.http) = { delete: "/v1/{name=branches/*}" };
   }
 }
 
 message Branch {
-  uint64 id = 1;
-  string name = 2;
+  string name = 1;
+  string display_name = 2;
   string address = 3;
   uint32 no_beds = 4;
   uint32 no_baths = 5;
@@ -76,7 +76,7 @@ message SearchBranchesResponse {
 }
 
 message GetBranchRequest {
-  uint64 id = 1;
+  string name = 1;
 }
 
 message CreateBranchRequest {
@@ -89,7 +89,7 @@ message UpdateBranchRequest {
 }
 
 message DeleteBranchRequest {
-  uint64 id = 1;
+  string name = 1;
 }
 
 message BrancheOperation {
@@ -98,6 +98,6 @@ message BrancheOperation {
     CREATE = 1;
   }
 
-  uint64 id = 1;
+  string name = 1;
   OperationType operation_type = 2;
 }

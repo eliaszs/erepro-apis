@@ -21,9 +21,9 @@ service Listings {
     option (google.api.http) = { post: "/v1/listings:search", body: "*" };
   }
 
-  // Retrives a listing identified by the supplied listing id
+  // Retrives a listing identified by the supplied listing name
   rpc GetListing(GetListingRequest) returns (Listing) {
-    option (google.api.http) = { get: "/v1/{id=listings}/*" };
+    option (google.api.http) = { get: "/v1/{name=listings}/*" };
   }
 
   // Create a listing in the database
@@ -33,12 +33,12 @@ service Listings {
 
   // Update a listing
   rpc UpdateListing(UpdateListingRequest) returns (Listing) {
-    option (google.api.http) = { patch: "/v1/{listing.id=listings/*}", body: "listing" };
+    option (google.api.http) = { patch: "/v1/{listing.name=listings/*}", body: "listing" };
   }
 
   // Delete a listing
   rpc DeleteListing(DeleteListingRequest) returns (Listing) {
-    option (google.api.http) = { delete: "/v1/{id=listings/*}" };
+    option (google.api.http) = { delete: "/v1/{name=listings/*}" };
   }
 }
 
@@ -50,8 +50,8 @@ message Listing {
     RENTED = 3;
   }
 
-  uint64 id = 1;
-  string name = 2;
+  string name = 1;
+  string display_name = 2;
   string address = 3;
   uint32 no_beds = 4;
   uint32 no_baths = 5;
@@ -84,7 +84,7 @@ message SearchListingsResponse {
 }
 
 message GetListingRequest {
-  uint64 id = 1;
+  string name = 1;
 }
 
 message CreateListingRequest {
@@ -97,7 +97,7 @@ message UpdateListingRequest {
 }
 
 message DeleteListingRequest {
-  uint64 id = 1;
+  string name = 1;
 }
 
 message ListingOperation {
@@ -106,6 +106,6 @@ message ListingOperation {
     CREATE = 1;
   }
 
-  uint64 id = 1;
+  string name = 1;
   OperationType operation_type = 2;
 }
