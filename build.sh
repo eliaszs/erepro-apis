@@ -1,6 +1,4 @@
 make PROTOINCLUDE=$GOPATH/src/github.com/googleapis/googleapis LANGUAGE=go OUTPUT=.
-cp -rvf github.com/eliaszs/erepro-apis/erepro .
-rm -rf github.com
 
 make PROTOINCLUDE=$GOPATH/src/github.com/googleapis/googleapis LANGUAGE=python OUTPUT=.python/
 find .python/ -type f -name \*.go -delete
