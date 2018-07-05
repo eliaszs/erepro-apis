@@ -13,18 +13,17 @@ erepro apis specification
       ▸ listings/
         ▸ v1/
 
-  ▸ erepro-infra/
+  ▸ erepro/
     ▸ e2e/
     ▸ infra/
     ▸ istio/
     ▸ k8s/
-
-  ▸ erepro/
-    ▸ account/
-    ▸ auth/
-    ▸ analytics/
-    ▸ branches/
-    ▸ listings/
+    ▸ services/
+      ▸ account/
+      ▸ auth/
+      ▸ analytics/
+      ▸ branches/
+      ▸ listings/
 ```
 
 # Build
