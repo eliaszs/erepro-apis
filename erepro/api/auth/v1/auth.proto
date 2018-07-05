@@ -8,7 +8,7 @@ import "google/api/annotations.proto";
 service Auth {
   // Authenticate
   rpc Authenticate(AuthRequest) returns (AuthResponse) {
-    option (google.api.http) = { post: "/v1/auth", body: "credentials" };
+    option (google.api.http) = { post: "/v1/auth", body: "*" };
   }
 }
 
