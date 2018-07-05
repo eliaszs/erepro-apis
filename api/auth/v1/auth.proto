@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package erego.api.auth.v1;
+
+import "google/api/annotations.proto";
+
+// Auth is responsible for the user authentication
+service Auth {
+  // Authenticate
+  rpc Authenticate(AuthRequest) returns (AuthResponse) {
+    option (google.api.http) = { post: "/v1/auth", body: "credentials" };
+  }
+}
+
+message AuthRequest {
+  string username = 1;
+  string password = 2;
+}
+
+message AuthResponse {
+  bool authenticated = 1;
+}
