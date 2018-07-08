@@ -13,7 +13,6 @@ _sym_db = _symbol_database.Default()
 
 
 from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
-from google.longrunning import operations_pb2 as google_dot_longrunning_dot_operations__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 from google.protobuf import field_mask_pb2 as google_dot_protobuf_dot_field__mask__pb2
 
@@ -23,9 +22,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='erepro.api.branches.v1',
   syntax='proto3',
   serialized_options=_b('Z>github.com/eliaszs/erepro-apis/erepro/api/branches/v1;branches'),
-  serialized_pb=_b('\n%erepro/api/branches/v1/branches.proto\x12\x16\x65repro.api.branches.v1\x1a\x1cgoogle/api/annotations.proto\x1a#google/longrunning/operations.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a google/protobuf/field_mask.proto\"\xd1\x01\n\x06\x42ranch\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x14\n\x0c\x64isplay_name\x18\x02 \x01(\t\x12\x0f\n\x07\x61\x64\x64ress\x18\x03 \x01(\t\x12\x0f\n\x07no_beds\x18\x04 \x01(\r\x12\x10\n\x08no_baths\x18\x05 \x01(\r\x12\r\n\x05price\x18\x06 \x01(\x04\x12/\n\x0b\x63reate_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12/\n\x0bupdate_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"Q\n\x13ListBranchesRequest\x12\x11\n\tpage_size\x18\x01 \x01(\x05\x12\x12\n\npage_token\x18\x02 \x01(\t\x12\x13\n\x0bshow_delete\x18\x03 \x01(\x08\"a\n\x14ListBranchesResponse\x12\x30\n\x08\x62ranches\x18\x01 \x03(\x0b\x32\x1e.erepro.api.branches.v1.Branch\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"M\n\x15SearchBranchesRequest\x12\x11\n\tpage_size\x18\x01 \x01(\x05\x12\x12\n\npage_token\x18\x02 \x01(\t\x12\r\n\x05query\x18\x03 \x01(\t\"c\n\x16SearchBranchesResponse\x12\x30\n\x08\x62ranches\x18\x01 \x03(\x0b\x32\x1e.erepro.api.branches.v1.Branch\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\" \n\x10GetBranchRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\"E\n\x13\x43reateBranchRequest\x12.\n\x06\x62ranch\x18\x01 \x01(\x0b\x32\x1e.erepro.api.branches.v1.Branch\"v\n\x13UpdateBranchRequest\x12.\n\x06\x62ranch\x18\x01 \x01(\x0b\x32\x1e.erepro.api.branches.v1.Branch\x12/\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"#\n\x13\x44\x65leteBranchRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\"\xad\x01\n\x10\x42rancheOperation\x12\x0c\n\x04name\x18\x01 \x01(\t\x12N\n\x0eoperation_type\x18\x02 \x01(\x0e\x32\x36.erepro.api.branches.v1.BrancheOperation.OperationType\";\n\rOperationType\x12\x1e\n\x1aOPERATION_TYPE_UNSPECIFIED\x10\x00\x12\n\n\x06\x43REATE\x10\x01\x32\x95\x06\n\x08\x42ranches\x12\x7f\n\x0cListBranches\x12+.erepro.api.branches.v1.ListBranchesRequest\x1a,.erepro.api.branches.v1.ListBranchesResponse\"\x14\x82\xd3\xe4\x93\x02\x0e\x12\x0c/v1/branches\x12\x8f\x01\n\x0eSearchBranches\x12-.erepro.api.branches.v1.SearchBranchesRequest\x1a..erepro.api.branches.v1.SearchBranchesResponse\"\x1e\x82\xd3\xe4\x93\x02\x18\"\x13/v1/branches:search:\x01*\x12t\n\tGetBranch\x12(.erepro.api.branches.v1.GetBranchRequest\x1a\x1e.erepro.api.branches.v1.Branch\"\x1d\x82\xd3\xe4\x93\x02\x17\x12\x15/v1/{name=branches/*}\x12x\n\x0c\x43reateBranch\x12+.erepro.api.branches.v1.CreateBranchRequest\x1a\x1d.google.longrunning.Operation\"\x1c\x82\xd3\xe4\x93\x02\x16\"\x0c/v1/branches:\x06\x62ranch\x12\x89\x01\n\x0cUpdateBranch\x12+.erepro.api.branches.v1.UpdateBranchRequest\x1a\x1e.erepro.api.branches.v1.Branch\",\x82\xd3\xe4\x93\x02&2\x1c/v1/{branch.name=branches/*}:\x06\x62ranch\x12z\n\x0c\x44\x65leteBranch\x12+.erepro.api.branches.v1.DeleteBranchRequest\x1a\x1e.erepro.api.branches.v1.Branch\"\x1d\x82\xd3\xe4\x93\x02\x17*\x15/v1/{name=branches/*}B@Z>github.com/eliaszs/erepro-apis/erepro/api/branches/v1;branchesb\x06proto3')
+  serialized_pb=_b('\n%erepro/api/branches/v1/branches.proto\x12\x16\x65repro.api.branches.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a google/protobuf/field_mask.proto\"\xd1\x01\n\x06\x42ranch\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x14\n\x0c\x64isplay_name\x18\x02 \x01(\t\x12\x0f\n\x07\x61\x64\x64ress\x18\x03 \x01(\t\x12\x0f\n\x07no_beds\x18\x04 \x01(\r\x12\x10\n\x08no_baths\x18\x05 \x01(\r\x12\r\n\x05price\x18\x06 \x01(\x04\x12/\n\x0b\x63reate_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12/\n\x0bupdate_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"Q\n\x13ListBranchesRequest\x12\x11\n\tpage_size\x18\x01 \x01(\x05\x12\x12\n\npage_token\x18\x02 \x01(\t\x12\x13\n\x0bshow_delete\x18\x03 \x01(\x08\"a\n\x14ListBranchesResponse\x12\x30\n\x08\x62ranches\x18\x01 \x03(\x0b\x32\x1e.erepro.api.branches.v1.Branch\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"M\n\x15SearchBranchesRequest\x12\x11\n\tpage_size\x18\x01 \x01(\x05\x12\x12\n\npage_token\x18\x02 \x01(\t\x12\r\n\x05query\x18\x03 \x01(\t\"c\n\x16SearchBranchesResponse\x12\x30\n\x08\x62ranches\x18\x01 \x03(\x0b\x32\x1e.erepro.api.branches.v1.Branch\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\" \n\x10GetBranchRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\"E\n\x13\x43reateBranchRequest\x12.\n\x06\x62ranch\x18\x01 \x01(\x0b\x32\x1e.erepro.api.branches.v1.Branch\"v\n\x13UpdateBranchRequest\x12.\n\x06\x62ranch\x18\x01 \x01(\x0b\x32\x1e.erepro.api.branches.v1.Branch\x12/\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"#\n\x13\x44\x65leteBranchRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\"\xad\x01\n\x10\x42rancheOperation\x12\x0c\n\x04name\x18\x01 \x01(\t\x12N\n\x0eoperation_type\x18\x02 \x01(\x0e\x32\x36.erepro.api.branches.v1.BrancheOperation.OperationType\";\n\rOperationType\x12\x1e\n\x1aOPERATION_TYPE_UNSPECIFIED\x10\x00\x12\n\n\x06\x43REATE\x10\x01\x32\x96\x06\n\x08\x42ranches\x12\x7f\n\x0cListBranches\x12+.erepro.api.branches.v1.ListBranchesRequest\x1a,.erepro.api.branches.v1.ListBranchesResponse\"\x14\x82\xd3\xe4\x93\x02\x0e\x12\x0c/v1/branches\x12\x8f\x01\n\x0eSearchBranches\x12-.erepro.api.branches.v1.SearchBranchesRequest\x1a..erepro.api.branches.v1.SearchBranchesResponse\"\x1e\x82\xd3\xe4\x93\x02\x18\"\x13/v1/branches:search:\x01*\x12t\n\tGetBranch\x12(.erepro.api.branches.v1.GetBranchRequest\x1a\x1e.erepro.api.branches.v1.Branch\"\x1d\x82\xd3\xe4\x93\x02\x17\x12\x15/v1/{name=branches/*}\x12y\n\x0c\x43reateBranch\x12+.erepro.api.branches.v1.CreateBranchRequest\x1a\x1e.erepro.api.branches.v1.Branch\"\x1c\x82\xd3\xe4\x93\x02\x16\"\x0c/v1/branches:\x06\x62ranch\x12\x89\x01\n\x0cUpdateBranch\x12+.erepro.api.branches.v1.UpdateBranchRequest\x1a\x1e.erepro.api.branches.v1.Branch\",\x82\xd3\xe4\x93\x02&2\x1c/v1/{branch.name=branches/*}:\x06\x62ranch\x12z\n\x0c\x44\x65leteBranch\x12+.erepro.api.branches.v1.DeleteBranchRequest\x1a\x1e.erepro.api.branches.v1.Branch\"\x1d\x82\xd3\xe4\x93\x02\x17*\x15/v1/{name=branches/*}B@Z>github.com/eliaszs/erepro-apis/erepro/api/branches/v1;branchesb\x06proto3')
   ,
-  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_longrunning_dot_operations__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,])
 
 
 
@@ -46,8 +45,8 @@ _BRANCHEOPERATION_OPERATIONTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1150,
-  serialized_end=1209,
+  serialized_start=1113,
+  serialized_end=1172,
 )
 _sym_db.RegisterEnumDescriptor(_BRANCHEOPERATION_OPERATIONTYPE)
 
@@ -127,8 +126,8 @@ _BRANCH = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=200,
-  serialized_end=409,
+  serialized_start=163,
+  serialized_end=372,
 )
 
 
@@ -172,8 +171,8 @@ _LISTBRANCHESREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=411,
-  serialized_end=492,
+  serialized_start=374,
+  serialized_end=455,
 )
 
 
@@ -210,8 +209,8 @@ _LISTBRANCHESRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=494,
-  serialized_end=591,
+  serialized_start=457,
+  serialized_end=554,
 )
 
 
@@ -255,8 +254,8 @@ _SEARCHBRANCHESREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=593,
-  serialized_end=670,
+  serialized_start=556,
+  serialized_end=633,
 )
 
 
@@ -293,8 +292,8 @@ _SEARCHBRANCHESRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=672,
-  serialized_end=771,
+  serialized_start=635,
+  serialized_end=734,
 )
 
 
@@ -324,8 +323,8 @@ _GETBRANCHREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=773,
-  serialized_end=805,
+  serialized_start=736,
+  serialized_end=768,
 )
 
 
@@ -355,8 +354,8 @@ _CREATEBRANCHREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=807,
-  serialized_end=876,
+  serialized_start=770,
+  serialized_end=839,
 )
 
 
@@ -393,8 +392,8 @@ _UPDATEBRANCHREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=878,
-  serialized_end=996,
+  serialized_start=841,
+  serialized_end=959,
 )
 
 
@@ -424,8 +423,8 @@ _DELETEBRANCHREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=998,
-  serialized_end=1033,
+  serialized_start=961,
+  serialized_end=996,
 )
 
 
@@ -463,8 +462,8 @@ _BRANCHEOPERATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1036,
-  serialized_end=1209,
+  serialized_start=999,
+  serialized_end=1172,
 )
 
 _BRANCH.fields_by_name['create_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
@@ -567,8 +566,8 @@ _BRANCHES = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=1212,
-  serialized_end=2001,
+  serialized_start=1175,
+  serialized_end=1965,
   methods=[
   _descriptor.MethodDescriptor(
     name='ListBranches',
@@ -603,7 +602,7 @@ _BRANCHES = _descriptor.ServiceDescriptor(
     index=3,
     containing_service=None,
     input_type=_CREATEBRANCHREQUEST,
-    output_type=google_dot_longrunning_dot_operations__pb2._OPERATION,
+    output_type=_BRANCH,
     serialized_options=_b('\202\323\344\223\002\026\"\014/v1/branches:\006branch'),
   ),
   _descriptor.MethodDescriptor(

@@ -2,7 +2,6 @@
 import grpc
 
 from erepro.api.branches.v1 import branches_pb2 as erepro_dot_api_dot_branches_dot_v1_dot_branches__pb2
-from google.longrunning import operations_pb2 as google_dot_longrunning_dot_operations__pb2
 
 
 class BranchesStub(object):
@@ -33,7 +32,7 @@ class BranchesStub(object):
     self.CreateBranch = channel.unary_unary(
         '/erepro.api.branches.v1.Branches/CreateBranch',
         request_serializer=erepro_dot_api_dot_branches_dot_v1_dot_branches__pb2.CreateBranchRequest.SerializeToString,
-        response_deserializer=google_dot_longrunning_dot_operations__pb2.Operation.FromString,
+        response_deserializer=erepro_dot_api_dot_branches_dot_v1_dot_branches__pb2.Branch.FromString,
         )
     self.UpdateBranch = channel.unary_unary(
         '/erepro.api.branches.v1.Branches/UpdateBranch',
@@ -74,6 +73,7 @@ class BranchesServicer(object):
 
   def CreateBranch(self, request, context):
     """Create a Branch in the database
+    (google.longrunning.Operation) {
     """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
@@ -114,7 +114,7 @@ def add_BranchesServicer_to_server(servicer, server):
       'CreateBranch': grpc.unary_unary_rpc_method_handler(
           servicer.CreateBranch,
           request_deserializer=erepro_dot_api_dot_branches_dot_v1_dot_branches__pb2.CreateBranchRequest.FromString,
-          response_serializer=google_dot_longrunning_dot_operations__pb2.Operation.SerializeToString,
+          response_serializer=erepro_dot_api_dot_branches_dot_v1_dot_branches__pb2.Branch.SerializeToString,
       ),
       'UpdateBranch': grpc.unary_unary_rpc_method_handler(
           servicer.UpdateBranch,

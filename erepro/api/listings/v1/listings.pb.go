@@ -10,6 +10,11 @@ import timestamp "github.com/golang/protobuf/ptypes/timestamp"
 import _ "google.golang.org/genproto/googleapis/api/annotations"
 import field_mask "google.golang.org/genproto/protobuf/field_mask"
 
+import (
+	context "golang.org/x/net/context"
+	grpc "google.golang.org/grpc"
+)
+
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
 var _ = fmt.Errorf
@@ -572,6 +577,255 @@ func init() {
 	proto.RegisterType((*DeleteListingRequest)(nil), "erepro.api.listings.v1.DeleteListingRequest")
 	proto.RegisterType((*ListingOperation)(nil), "erepro.api.listings.v1.ListingOperation")
 	proto.RegisterEnum("erepro.api.listings.v1.ListingOperation_OperationType", ListingOperation_OperationType_name, ListingOperation_OperationType_value)
+}
+
+// Reference imports to suppress errors if they are not otherwise used.
+var _ context.Context
+var _ grpc.ClientConn
+
+// This is a compile-time assertion to ensure that this generated file
+// is compatible with the grpc package it is being compiled against.
+const _ = grpc.SupportPackageIsVersion4
+
+// ListingsClient is the client API for Listings service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
+type ListingsClient interface {
+	// List the availalbe listings
+	ListListings(ctx context.Context, in *ListListingsRequest, opts ...grpc.CallOption) (*ListListingsResponse, error)
+	// Search for listings that match specific filter criteria.
+	SearchListings(ctx context.Context, in *SearchListingsRequest, opts ...grpc.CallOption) (*SearchListingsResponse, error)
+	// Retrives a listing identified by the supplied listing name
+	GetListing(ctx context.Context, in *GetListingRequest, opts ...grpc.CallOption) (*Listing, error)
+	// Create a listing in the database
+	CreateListing(ctx context.Context, in *CreateListingRequest, opts ...grpc.CallOption) (*Listing, error)
+	// Update a listing
+	UpdateListing(ctx context.Context, in *UpdateListingRequest, opts ...grpc.CallOption) (*Listing, error)
+	// Delete a listing
+	DeleteListing(ctx context.Context, in *DeleteListingRequest, opts ...grpc.CallOption) (*Listing, error)
+}
+
+type listingsClient struct {
+	cc *grpc.ClientConn
+}
+
+func NewListingsClient(cc *grpc.ClientConn) ListingsClient {
+	return &listingsClient{cc}
+}
+
+func (c *listingsClient) ListListings(ctx context.Context, in *ListListingsRequest, opts ...grpc.CallOption) (*ListListingsResponse, error) {
+	out := new(ListListingsResponse)
+	err := c.cc.Invoke(ctx, "/erepro.api.listings.v1.Listings/ListListings", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *listingsClient) SearchListings(ctx context.Context, in *SearchListingsRequest, opts ...grpc.CallOption) (*SearchListingsResponse, error) {
+	out := new(SearchListingsResponse)
+	err := c.cc.Invoke(ctx, "/erepro.api.listings.v1.Listings/SearchListings", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *listingsClient) GetListing(ctx context.Context, in *GetListingRequest, opts ...grpc.CallOption) (*Listing, error) {
+	out := new(Listing)
+	err := c.cc.Invoke(ctx, "/erepro.api.listings.v1.Listings/GetListing", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *listingsClient) CreateListing(ctx context.Context, in *CreateListingRequest, opts ...grpc.CallOption) (*Listing, error) {
+	out := new(Listing)
+	err := c.cc.Invoke(ctx, "/erepro.api.listings.v1.Listings/CreateListing", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *listingsClient) UpdateListing(ctx context.Context, in *UpdateListingRequest, opts ...grpc.CallOption) (*Listing, error) {
+	out := new(Listing)
+	err := c.cc.Invoke(ctx, "/erepro.api.listings.v1.Listings/UpdateListing", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *listingsClient) DeleteListing(ctx context.Context, in *DeleteListingRequest, opts ...grpc.CallOption) (*Listing, error) {
+	out := new(Listing)
+	err := c.cc.Invoke(ctx, "/erepro.api.listings.v1.Listings/DeleteListing", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ListingsServer is the server API for Listings service.
+type ListingsServer interface {
+	// List the availalbe listings
+	ListListings(context.Context, *ListListingsRequest) (*ListListingsResponse, error)
+	// Search for listings that match specific filter criteria.
+	SearchListings(context.Context, *SearchListingsRequest) (*SearchListingsResponse, error)
+	// Retrives a listing identified by the supplied listing name
+	GetListing(context.Context, *GetListingRequest) (*Listing, error)
+	// Create a listing in the database
+	CreateListing(context.Context, *CreateListingRequest) (*Listing, error)
+	// Update a listing
+	UpdateListing(context.Context, *UpdateListingRequest) (*Listing, error)
+	// Delete a listing
+	DeleteListing(context.Context, *DeleteListingRequest) (*Listing, error)
+}
+
+func RegisterListingsServer(s *grpc.Server, srv ListingsServer) {
+	s.RegisterService(&_Listings_serviceDesc, srv)
+}
+
+func _Listings_ListListings_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListListingsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ListingsServer).ListListings(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/erepro.api.listings.v1.Listings/ListListings",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ListingsServer).ListListings(ctx, req.(*ListListingsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Listings_SearchListings_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SearchListingsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ListingsServer).SearchListings(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/erepro.api.listings.v1.Listings/SearchListings",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ListingsServer).SearchListings(ctx, req.(*SearchListingsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Listings_GetListing_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetListingRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ListingsServer).GetListing(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/erepro.api.listings.v1.Listings/GetListing",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ListingsServer).GetListing(ctx, req.(*GetListingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Listings_CreateListing_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateListingRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ListingsServer).CreateListing(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/erepro.api.listings.v1.Listings/CreateListing",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ListingsServer).CreateListing(ctx, req.(*CreateListingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Listings_UpdateListing_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateListingRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ListingsServer).UpdateListing(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/erepro.api.listings.v1.Listings/UpdateListing",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ListingsServer).UpdateListing(ctx, req.(*UpdateListingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Listings_DeleteListing_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteListingRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ListingsServer).DeleteListing(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/erepro.api.listings.v1.Listings/DeleteListing",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ListingsServer).DeleteListing(ctx, req.(*DeleteListingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+var _Listings_serviceDesc = grpc.ServiceDesc{
+	ServiceName: "erepro.api.listings.v1.Listings",
+	HandlerType: (*ListingsServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "ListListings",
+			Handler:    _Listings_ListListings_Handler,
+		},
+		{
+			MethodName: "SearchListings",
+			Handler:    _Listings_SearchListings_Handler,
+		},
+		{
+			MethodName: "GetListing",
+			Handler:    _Listings_GetListing_Handler,
+		},
+		{
+			MethodName: "CreateListing",
+			Handler:    _Listings_CreateListing_Handler,
+		},
+		{
+			MethodName: "UpdateListing",
+			Handler:    _Listings_UpdateListing_Handler,
+		},
+		{
+			MethodName: "DeleteListing",
+			Handler:    _Listings_DeleteListing_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "erepro/api/listings/v1/listings.proto",
 }
 
 func init() {

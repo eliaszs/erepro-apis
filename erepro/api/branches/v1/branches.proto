@@ -3,7 +3,7 @@ syntax = "proto3";
 package erepro.api.branches.v1;
 
 import "google/api/annotations.proto";
-import "google/longrunning/operations.proto";
+// import "google/longrunning/operations.proto";
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/field_mask.proto";
 
@@ -29,7 +29,7 @@ service Branches {
   }
 
   // Create a Branch in the database
-  rpc CreateBranch(CreateBranchRequest) returns (google.longrunning.Operation) {
+  rpc CreateBranch(CreateBranchRequest) returns (Branch) { //(google.longrunning.Operation) {
     option (google.api.http) = { post: "/v1/branches", body: "branch" };
   }
 
