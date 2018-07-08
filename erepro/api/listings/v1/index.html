@@ -220,10 +220,6 @@
               
               
                 <li>
-                  <a href="#erepro.api.listings.v1.Listing.Status"><span class="badge">E</span>Listing.Status</a>
-                </li>
-              
-                <li>
                   <a href="#erepro.api.listings.v1.ListingOperation.OperationType"><span class="badge">E</span>ListingOperation.OperationType</a>
                 </li>
               
@@ -385,7 +381,7 @@
         
       
         <h3 id="erepro.api.listings.v1.Listing">Listing</h3>
-        <p></p>
+        <p>FIXME: use enum as a status type</p><p>enum Status {</p><p>UNSPECIFIED = 0;</p><p>ACTIVE = 1;</p><p>SOLD = 2;</p><p>RENTED = 3;</p><p>OFFER = 4;</p><p>}</p>
 
         
           <table class="field-table">
@@ -438,7 +434,7 @@
               
                 <tr>
                   <td>status</td>
-                  <td><a href="#erepro.api.listings.v1.Listing.Status">Listing.Status</a></td>
+                  <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
@@ -598,47 +594,6 @@
         
       
 
-      
-        <h3 id="erepro.api.listings.v1.Listing.Status">Listing.Status</h3>
-        <p></p>
-        <table class="enum-table">
-          <thead>
-            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
-          </thead>
-          <tbody>
-            
-              <tr>
-                <td>UNSPECIFIED</td>
-                <td>0</td>
-                <td><p></p></td>
-              </tr>
-            
-              <tr>
-                <td>MARKET</td>
-                <td>1</td>
-                <td><p></p></td>
-              </tr>
-            
-              <tr>
-                <td>SOLD</td>
-                <td>2</td>
-                <td><p></p></td>
-              </tr>
-            
-              <tr>
-                <td>RENTED</td>
-                <td>3</td>
-                <td><p></p></td>
-              </tr>
-            
-              <tr>
-                <td>OFFER</td>
-                <td>4</td>
-                <td><p></p></td>
-              </tr>
-            
-          </tbody>
-        </table>
       
         <h3 id="erepro.api.listings.v1.ListingOperation.OperationType">ListingOperation.OperationType</h3>
         <p></p>

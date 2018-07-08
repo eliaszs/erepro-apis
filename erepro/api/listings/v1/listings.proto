@@ -45,13 +45,14 @@ service Listings {
 }
 
 message Listing {
-  enum Status {
-    UNSPECIFIED = 0;
-    MARKET = 1;
-    SOLD = 2;
-    RENTED = 3;
-    OFFER = 4;
-  }
+  // FIXME: use enum as a status type
+  // enum Status {
+  //   UNSPECIFIED = 0;
+  //   ACTIVE = 1;
+  //   SOLD = 2;
+  //   RENTED = 3;
+  //   OFFER = 4;
+  // }
 
   string name = 1;
   string display_name = 2;
@@ -59,7 +60,7 @@ message Listing {
   uint32 no_beds = 4;
   uint32 no_baths = 5;
   uint64 price = 6;
-  Status status = 7;
+  string status = 7;
 
   google.protobuf.Timestamp create_time = 8;
   google.protobuf.Timestamp update_time = 9;
