@@ -13,7 +13,6 @@ _sym_db = _symbol_database.Default()
 
 
 from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
-from google.longrunning import operations_pb2 as google_dot_longrunning_dot_operations__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 from google.protobuf import field_mask_pb2 as google_dot_protobuf_dot_field__mask__pb2
 
@@ -23,9 +22,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='erepro.api.listings.v1',
   syntax='proto3',
   serialized_options=_b('Z>github.com/eliaszs/erepro-apis/erepro/api/listings/v1;listings'),
-  serialized_pb=_b('\n%erepro/api/listings/v1/listings.proto\x12\x16\x65repro.api.listings.v1\x1a\x1cgoogle/api/annotations.proto\x1a#google/longrunning/operations.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a google/protobuf/field_mask.proto\"\x93\x02\n\x07Listing\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x14\n\x0c\x64isplay_name\x18\x02 \x01(\t\x12\x0f\n\x07\x61\x64\x64ress\x18\x03 \x01(\t\x12\x0f\n\x07no_beds\x18\x04 \x01(\r\x12\x10\n\x08no_baths\x18\x05 \x01(\r\x12\r\n\x05price\x18\x06 \x01(\x04\x12\x0e\n\x06status\x18\x07 \x01(\t\x12/\n\x0b\x63reate_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12/\n\x0bupdate_time\x18\t \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12/\n\x0b\x64\x65lete_time\x18\n \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"Q\n\x13ListListingsRequest\x12\x11\n\tpage_size\x18\x01 \x01(\x05\x12\x12\n\npage_token\x18\x02 \x01(\t\x12\x13\n\x0bshow_delete\x18\x03 \x01(\x08\"b\n\x14ListListingsResponse\x12\x31\n\x08listings\x18\x01 \x03(\x0b\x32\x1f.erepro.api.listings.v1.Listing\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"M\n\x15SearchListingsRequest\x12\x11\n\tpage_size\x18\x01 \x01(\x05\x12\x12\n\npage_token\x18\x02 \x01(\t\x12\r\n\x05query\x18\x03 \x01(\t\"d\n\x16SearchListingsResponse\x12\x31\n\x08listings\x18\x01 \x03(\x0b\x32\x1f.erepro.api.listings.v1.Listing\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"!\n\x11GetListingRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\"H\n\x14\x43reateListingRequest\x12\x30\n\x07listing\x18\x01 \x01(\x0b\x32\x1f.erepro.api.listings.v1.Listing\"y\n\x14UpdateListingRequest\x12\x30\n\x07listing\x18\x01 \x01(\x0b\x32\x1f.erepro.api.listings.v1.Listing\x12/\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"$\n\x14\x44\x65leteListingRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\"\xad\x01\n\x10ListingOperation\x12\x0c\n\x04name\x18\x01 \x01(\t\x12N\n\x0eoperation_type\x18\x02 \x01(\x0e\x32\x36.erepro.api.listings.v1.ListingOperation.OperationType\";\n\rOperationType\x12\x1e\n\x1aOPERATION_TYPE_UNSPECIFIED\x10\x00\x12\n\n\x06\x43REATE\x10\x01\x32\xa3\x06\n\x08Listings\x12\x7f\n\x0cListListings\x12+.erepro.api.listings.v1.ListListingsRequest\x1a,.erepro.api.listings.v1.ListListingsResponse\"\x14\x82\xd3\xe4\x93\x02\x0e\x12\x0c/v1/listings\x12\x8f\x01\n\x0eSearchListings\x12-.erepro.api.listings.v1.SearchListingsRequest\x1a..erepro.api.listings.v1.SearchListingsResponse\"\x1e\x82\xd3\xe4\x93\x02\x18\"\x13/v1/listings:search:\x01*\x12w\n\nGetListing\x12).erepro.api.listings.v1.GetListingRequest\x1a\x1f.erepro.api.listings.v1.Listing\"\x1d\x82\xd3\xe4\x93\x02\x17\x12\x15/v1/{name=listings}/*\x12{\n\rCreateListing\x12,.erepro.api.listings.v1.CreateListingRequest\x1a\x1d.google.longrunning.Operation\"\x1d\x82\xd3\xe4\x93\x02\x17\"\x0c/v1/listings:\x07listing\x12\x8e\x01\n\rUpdateListing\x12,.erepro.api.listings.v1.UpdateListingRequest\x1a\x1f.erepro.api.listings.v1.Listing\".\x82\xd3\xe4\x93\x02(2\x1d/v1/{listing.name=listings/*}:\x07listing\x12}\n\rDeleteListing\x12,.erepro.api.listings.v1.DeleteListingRequest\x1a\x1f.erepro.api.listings.v1.Listing\"\x1d\x82\xd3\xe4\x93\x02\x17*\x15/v1/{name=listings/*}B@Z>github.com/eliaszs/erepro-apis/erepro/api/listings/v1;listingsb\x06proto3')
+  serialized_pb=_b('\n%erepro/api/listings/v1/listings.proto\x12\x16\x65repro.api.listings.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a google/protobuf/field_mask.proto\"\x93\x02\n\x07Listing\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x14\n\x0c\x64isplay_name\x18\x02 \x01(\t\x12\x0f\n\x07\x61\x64\x64ress\x18\x03 \x01(\t\x12\x0f\n\x07no_beds\x18\x04 \x01(\r\x12\x10\n\x08no_baths\x18\x05 \x01(\r\x12\r\n\x05price\x18\x06 \x01(\x04\x12\x0e\n\x06status\x18\x07 \x01(\t\x12/\n\x0b\x63reate_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12/\n\x0bupdate_time\x18\t \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12/\n\x0b\x64\x65lete_time\x18\n \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"Q\n\x13ListListingsRequest\x12\x11\n\tpage_size\x18\x01 \x01(\x05\x12\x12\n\npage_token\x18\x02 \x01(\t\x12\x13\n\x0bshow_delete\x18\x03 \x01(\x08\"b\n\x14ListListingsResponse\x12\x31\n\x08listings\x18\x01 \x03(\x0b\x32\x1f.erepro.api.listings.v1.Listing\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"M\n\x15SearchListingsRequest\x12\x11\n\tpage_size\x18\x01 \x01(\x05\x12\x12\n\npage_token\x18\x02 \x01(\t\x12\r\n\x05query\x18\x03 \x01(\t\"d\n\x16SearchListingsResponse\x12\x31\n\x08listings\x18\x01 \x03(\x0b\x32\x1f.erepro.api.listings.v1.Listing\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"!\n\x11GetListingRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\"H\n\x14\x43reateListingRequest\x12\x30\n\x07listing\x18\x01 \x01(\x0b\x32\x1f.erepro.api.listings.v1.Listing\"y\n\x14UpdateListingRequest\x12\x30\n\x07listing\x18\x01 \x01(\x0b\x32\x1f.erepro.api.listings.v1.Listing\x12/\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"$\n\x14\x44\x65leteListingRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\"\xad\x01\n\x10ListingOperation\x12\x0c\n\x04name\x18\x01 \x01(\t\x12N\n\x0eoperation_type\x18\x02 \x01(\x0e\x32\x36.erepro.api.listings.v1.ListingOperation.OperationType\";\n\rOperationType\x12\x1e\n\x1aOPERATION_TYPE_UNSPECIFIED\x10\x00\x12\n\n\x06\x43REATE\x10\x01\x32\xa5\x06\n\x08Listings\x12\x7f\n\x0cListListings\x12+.erepro.api.listings.v1.ListListingsRequest\x1a,.erepro.api.listings.v1.ListListingsResponse\"\x14\x82\xd3\xe4\x93\x02\x0e\x12\x0c/v1/listings\x12\x8f\x01\n\x0eSearchListings\x12-.erepro.api.listings.v1.SearchListingsRequest\x1a..erepro.api.listings.v1.SearchListingsResponse\"\x1e\x82\xd3\xe4\x93\x02\x18\"\x13/v1/listings:search:\x01*\x12w\n\nGetListing\x12).erepro.api.listings.v1.GetListingRequest\x1a\x1f.erepro.api.listings.v1.Listing\"\x1d\x82\xd3\xe4\x93\x02\x17\x12\x15/v1/{name=listings}/*\x12}\n\rCreateListing\x12,.erepro.api.listings.v1.CreateListingRequest\x1a\x1f.erepro.api.listings.v1.Listing\"\x1d\x82\xd3\xe4\x93\x02\x17\"\x0c/v1/listings:\x07listing\x12\x8e\x01\n\rUpdateListing\x12,.erepro.api.listings.v1.UpdateListingRequest\x1a\x1f.erepro.api.listings.v1.Listing\".\x82\xd3\xe4\x93\x02(2\x1d/v1/{listing.name=listings/*}:\x07listing\x12}\n\rDeleteListing\x12,.erepro.api.listings.v1.DeleteListingRequest\x1a\x1f.erepro.api.listings.v1.Listing\"\x1d\x82\xd3\xe4\x93\x02\x17*\x15/v1/{name=listings/*}B@Z>github.com/eliaszs/erepro-apis/erepro/api/listings/v1;listingsb\x06proto3')
   ,
-  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_longrunning_dot_operations__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,])
 
 
 
@@ -46,8 +45,8 @@ _LISTINGOPERATION_OPERATIONTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1226,
-  serialized_end=1285,
+  serialized_start=1189,
+  serialized_end=1248,
 )
 _sym_db.RegisterEnumDescriptor(_LISTINGOPERATION_OPERATIONTYPE)
 
@@ -141,8 +140,8 @@ _LISTING = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=200,
-  serialized_end=475,
+  serialized_start=163,
+  serialized_end=438,
 )
 
 
@@ -186,8 +185,8 @@ _LISTLISTINGSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=477,
-  serialized_end=558,
+  serialized_start=440,
+  serialized_end=521,
 )
 
 
@@ -224,8 +223,8 @@ _LISTLISTINGSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=560,
-  serialized_end=658,
+  serialized_start=523,
+  serialized_end=621,
 )
 
 
@@ -269,8 +268,8 @@ _SEARCHLISTINGSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=660,
-  serialized_end=737,
+  serialized_start=623,
+  serialized_end=700,
 )
 
 
@@ -307,8 +306,8 @@ _SEARCHLISTINGSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=739,
-  serialized_end=839,
+  serialized_start=702,
+  serialized_end=802,
 )
 
 
@@ -338,8 +337,8 @@ _GETLISTINGREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=841,
-  serialized_end=874,
+  serialized_start=804,
+  serialized_end=837,
 )
 
 
@@ -369,8 +368,8 @@ _CREATELISTINGREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=876,
-  serialized_end=948,
+  serialized_start=839,
+  serialized_end=911,
 )
 
 
@@ -407,8 +406,8 @@ _UPDATELISTINGREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=950,
-  serialized_end=1071,
+  serialized_start=913,
+  serialized_end=1034,
 )
 
 
@@ -438,8 +437,8 @@ _DELETELISTINGREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1073,
-  serialized_end=1109,
+  serialized_start=1036,
+  serialized_end=1072,
 )
 
 
@@ -477,8 +476,8 @@ _LISTINGOPERATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1112,
-  serialized_end=1285,
+  serialized_start=1075,
+  serialized_end=1248,
 )
 
 _LISTING.fields_by_name['create_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
@@ -582,8 +581,8 @@ _LISTINGS = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=1288,
-  serialized_end=2091,
+  serialized_start=1251,
+  serialized_end=2056,
   methods=[
   _descriptor.MethodDescriptor(
     name='ListListings',
@@ -618,7 +617,7 @@ _LISTINGS = _descriptor.ServiceDescriptor(
     index=3,
     containing_service=None,
     input_type=_CREATELISTINGREQUEST,
-    output_type=google_dot_longrunning_dot_operations__pb2._OPERATION,
+    output_type=_LISTING,
     serialized_options=_b('\202\323\344\223\002\027\"\014/v1/listings:\007listing'),
   ),
   _descriptor.MethodDescriptor(

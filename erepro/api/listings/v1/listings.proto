@@ -4,7 +4,7 @@ package erepro.api.listings.v1;
 
 
 import "google/api/annotations.proto";
-import "google/longrunning/operations.proto";
+// import "google/longrunning/operations.proto";
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/field_mask.proto";
 
@@ -29,7 +29,7 @@ service Listings {
   }
 
   // Create a listing in the database
-  rpc CreateListing(CreateListingRequest) returns (google.longrunning.Operation) {
+  rpc CreateListing(CreateListingRequest) returns (Listing) { //google.longrunning.Operation) {
     option (google.api.http) = { post: "/v1/listings", body: "listing" };
   }
 

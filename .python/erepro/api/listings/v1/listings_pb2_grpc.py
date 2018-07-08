@@ -2,7 +2,6 @@
 import grpc
 
 from erepro.api.listings.v1 import listings_pb2 as erepro_dot_api_dot_listings_dot_v1_dot_listings__pb2
-from google.longrunning import operations_pb2 as google_dot_longrunning_dot_operations__pb2
 
 
 class ListingsStub(object):
@@ -33,7 +32,7 @@ class ListingsStub(object):
     self.CreateListing = channel.unary_unary(
         '/erepro.api.listings.v1.Listings/CreateListing',
         request_serializer=erepro_dot_api_dot_listings_dot_v1_dot_listings__pb2.CreateListingRequest.SerializeToString,
-        response_deserializer=google_dot_longrunning_dot_operations__pb2.Operation.FromString,
+        response_deserializer=erepro_dot_api_dot_listings_dot_v1_dot_listings__pb2.Listing.FromString,
         )
     self.UpdateListing = channel.unary_unary(
         '/erepro.api.listings.v1.Listings/UpdateListing',
@@ -74,6 +73,7 @@ class ListingsServicer(object):
 
   def CreateListing(self, request, context):
     """Create a listing in the database
+    google.longrunning.Operation) {
     """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
@@ -114,7 +114,7 @@ def add_ListingsServicer_to_server(servicer, server):
       'CreateListing': grpc.unary_unary_rpc_method_handler(
           servicer.CreateListing,
           request_deserializer=erepro_dot_api_dot_listings_dot_v1_dot_listings__pb2.CreateListingRequest.FromString,
-          response_serializer=google_dot_longrunning_dot_operations__pb2.Operation.SerializeToString,
+          response_serializer=erepro_dot_api_dot_listings_dot_v1_dot_listings__pb2.Listing.SerializeToString,
       ),
       'UpdateListing': grpc.unary_unary_rpc_method_handler(
           servicer.UpdateListing,
