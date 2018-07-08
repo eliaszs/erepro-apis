@@ -47,9 +47,10 @@ service Listings {
 message Listing {
   enum Status {
     UNSPECIFIED = 0;
-    ACTIVE = 1;
+    MARKET = 1;
     SOLD = 2;
     RENTED = 3;
+    OFFER = 4;
   }
 
   string name = 1;
@@ -58,9 +59,11 @@ message Listing {
   uint32 no_beds = 4;
   uint32 no_baths = 5;
   uint64 price = 6;
+  Status status = 7;
 
-  google.protobuf.Timestamp create_time = 7;
-  google.protobuf.Timestamp update_time = 8;
+  google.protobuf.Timestamp create_time = 8;
+  google.protobuf.Timestamp update_time = 9;
+  google.protobuf.Timestamp delete_time = 10;
 }
 
 message ListListingsRequest {

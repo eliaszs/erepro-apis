@@ -308,6 +308,9 @@
           "type": "string",
           "format": "uint64"
         },
+        "status": {
+          "$ref": "#/definitions/v1ListingStatus"
+        },
         "create_time": {
           "type": "string",
           "format": "date-time"
@@ -315,8 +318,23 @@
         "update_time": {
           "type": "string",
           "format": "date-time"
+        },
+        "delete_time": {
+          "type": "string",
+          "format": "date-time"
         }
       }
+    },
+    "v1ListingStatus": {
+      "type": "string",
+      "enum": [
+        "UNSPECIFIED",
+        "MARKET",
+        "SOLD",
+        "RENTED",
+        "OFFER"
+      ],
+      "default": "UNSPECIFIED"
     },
     "v1SearchListingsRequest": {
       "type": "object",
