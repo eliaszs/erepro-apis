@@ -37,7 +37,7 @@ FLAGS+=	--plugin=protoc-gen-grpc=$(GRPCPLUGIN)
 FLAGS_OUT+= --grpc_out=$(OUTPUT)
 endif
 
-FLAGS_OUT+= --$(LANGUAGE)_out=grpc:$(OUTPUT)
+FLAGS_OUT+= --$(LANGUAGE)_out=plugins=grpc:$(OUTPUT)
 FLAGS_OUT+= --grpc-gateway_out=$(OUTPUT)
 FLAGS_OUT+= --swagger_out=logtostderr=true:$(OUTPUT)
 
